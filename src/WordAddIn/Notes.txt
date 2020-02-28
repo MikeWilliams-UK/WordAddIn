@@ -1,0 +1,18 @@
+﻿RibbonXml
+
+Top Level
+<customUI loadImage="GetImageByName">
+  <...>
+    <group id="group1" label="group1" image="_1" >
+  <...>
+</customUI>
+CallBack --> public Bitmap GetImageByName(string imageName)
+    ==> GetImageByName("_1");
+
+Per Control
+<button id="button2" label="button2" size="large" getImage="GetButtonImage"/>
+
+CallBack --> public IPictureDisp GetButtonImage(Office.IRibbonControl control)
+    ==> GetButtonImage(control);
+    // Use control.Tag = get image from resource
+

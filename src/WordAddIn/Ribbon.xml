@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui"
+          loadImage="GetImageByName"
+          onLoad="Ribbon_Load">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabAddIns">
+        <group id="group1" label="group1" getImage="GetPicture" tag="_2">
+          <button id="button1" onAction="button1_Click" label="button1" size="large" getImage="GetPicture" tag="_1" />
+          <button id="button2" label="button2" size="large" getImage="GetPicture" tag="_3" />
+          <button id="button5" label="button5" size="large" getImage="GetPicture" tag="_5" />
+        </group>
+        <group id="group2" label="group2" getImage="GetPicture" tag="_4">
+          <button id="button3" label="button3" size="large" getImage="GetPicture" tag="_1" />
+          <button id="button4" label="button4" size="large" getImage="GetPicture" tag="_3" />
+          <button id="button6" label="button6" size="large" getImage="GetPicture" tag="_5" />
+        </group>
+        <group id="group3" label="group3" getImage="GetPicture" tag="_2">
+          <button id="button7" label="button7" size="large" getImage="GetPicture" tag="_1" />
+          <button id="button8" label="button8" size="large" getImage="GetPicture" tag="_3" />
+          <button id="button9" label="button9" size="large" getImage="GetPicture" tag="_5" />
+        </group>
+        <group id="group4" label="group4" getImage="GetPicture" tag="_4">
+          <button id="button10" label="button10" size="large" getImage="GetPicture" tag="_1" />
+          <button id="button11" label="button11" size="large" getImage="GetPicture" tag="_3" />
+          <button id="button12" label="button12" size="large" getImage="GetPicture" tag="_5" />
+        </group>
+        <group id="group5" label="group5" getImage="GetPicture" tag="_6">
+          <gallery id="gallery1" columns="3" rows="3" getImage="GetPicture" tag="_4" size="large">
+            <item id="x20" label="Help" />
+            <button id="button13" label="button13" tag="_1" getImage="GetPicture" />
+            <button id="button14" label="button14" image="_3" />
+            <button id="button15" label="button15" tag="_5" getImage="GetPicture" />
+            <button id="button16" label="button16" tag="_1" getImage="GetPicture" />
+            <button id="button17" label="button17" tag="_3" getImage="GetPicture" />
+            <button id="button18" label="button18" tag="_5" getImage="GetPicture" />
+          </gallery>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
+﻿using Microsoft.Office.Tools.Word;
+using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
-using Office = Microsoft.Office.Core;
-using Microsoft.Office.Tools.Word;
 
 namespace WordAddIn
 {
@@ -13,10 +8,40 @@ namespace WordAddIn
     {
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            Word.Application app = Application;
+            app.DocumentChange += OnDocumentChange;
+            app.DocumentBeforeClose += OnDocumentBeforeClose;
+        }
+
+        private void OnDocumentBeforeClose(Word.Document doc, ref bool cancel)
+        {
+            if (Application.Documents.Count > 0)
+            {
+                doc.ContentControlOnEnter -= OnContentControlEnter;
+            }
+        }
+
+        private void OnDocumentChange()
+        {
+            if (Application.Documents.Count > 0)
+            {
+                Document doc = Globals.Factory.GetVstoObject(Globals.ThisAddIn.Application.ActiveDocument);
+                doc.ContentControlOnEnter += OnContentControlEnter;
+            }
+        }
+
+        private void OnContentControlEnter(Word.ContentControl contentcontrol)
+        {
+            MessageBox.Show(contentcontrol.ID, contentcontrol.Type.ToString());
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
+        }
+
+        protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
+        {
+            return new Ribbon();
         }
 
         #region VSTO generated code
@@ -30,7 +55,7 @@ namespace WordAddIn
             this.Startup += new System.EventHandler(ThisAddIn_Startup);
             this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
         }
-        
-        #endregion
+
+        #endregion VSTO generated code
     }
 }
